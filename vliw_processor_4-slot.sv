@@ -106,7 +106,7 @@ module VLIW_processor_4slot(input clk, input rstn, input [127:0] vliw_instr);
   
   // ALU slot3
   always@(posedge clk) begin
-    case(op0)
+    case(op3)
       ADD: register_file[dest3] <= (valid3)?(register_file[src3_1]+register_file[src3_2]):'hz;
       MUL: register_file[dest3] <= (valid3)?(register_file[src3_1]*register_file[src3_2]):'hz;
       ADDI: register_file[dest3] <= (valid3)?(register_file[src3_1]+{13'h0000,imm3}):'hz;
@@ -124,4 +124,5 @@ module VLIW_processor_4slot(input clk, input rstn, input [127:0] vliw_instr);
   end
   
   
+
 endmodule

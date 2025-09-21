@@ -112,7 +112,7 @@ module VLIW_processor_4slot(input clk, input rstn, input [127:0] vliw_instr);
   
   // ALU slot3
   always@(*) begin
-    case(op0)
+    case(op3)
       ADD: slot_dest3 = register_file[src3_1]+register_file[src3_2];
       MUL: slot_dest3 = register_file[src3_1]*register_file[src3_2];
       ADDI: slot_dest3 = register_file[src3_1]+{13'h0000,imm3};
@@ -147,4 +147,5 @@ module VLIW_processor_4slot(input clk, input rstn, input [127:0] vliw_instr);
   end
   
   
+
 endmodule
